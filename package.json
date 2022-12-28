@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ckeditor4-plugin-exportpdf": "^1.0.6"
+  }
+}
