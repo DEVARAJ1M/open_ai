@@ -26,19 +26,29 @@
                   <input type="text" class="form-control" id="blogTopic" name="blogTopic" placeholder="Enter a blog topic"></label>
                </div>
                 <input type="hidden" name="form1" value="form">
-                <button type="submit"   id="blogTopicButton" class="btn btn-primary">Generate Blog</button>
+                <button type="submit"   id="blogTopicButton" class="btn btn-primary">Generate Blog Ideas</button>
                <div class="col-lg-15">  
-                    {{blogTopicIdeas|safe}}
-                    {{blogSectionIdeas|safe}}
-                    <button type="submit"   id="blogTopicButton" class="btn btn-primary">Next</button>
+                    {{blogTopicIdeas|safe}} 
+                    {{blogSectionIdeas1|safe}}
+                    
+
+<!--                     
+                  <script>
+                     function GFG_Fun() {
+                       var button = document.getElementById("blogtopics");
+                     }
+
+                  </script> -->
                </div> 
                <br>
                <br>
                <br>
-               
+                
                 <div class="col-lg-30">
                 
-                  <textarea name="content" id="content" cols="200" rows="700">{{Blogexpanderresult|safe}}</textarea>
+                  <textarea name="content" id="content" cols="1000" rows="700">{{Blogexpanderresult|safe}}
+                    
+                  </textarea>
                   
                     <script>
                       CKEDITOR.addCss(

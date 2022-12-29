@@ -40,6 +40,13 @@ def BlogSectionExpander(prompt3):
    presence_penalty=0
    )
    return response ['choices'][0]['text']
+def BlogTopicImage(prompt1):
+  response = openai.Image.create(
+  prompt="Generate image on:{} \n\f".format(prompt1),
+  n=1,
+  size="512x512"
+  )
+  return response ['data'][0]['url']
 
 # response = openai.Completion.create(
 #   model="text-davinci-003",

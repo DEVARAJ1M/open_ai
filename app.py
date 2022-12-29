@@ -26,24 +26,32 @@ def index():
                blog2="<input type='radio' name='blog_topics' style='margin-right: -2px' value='"+blog1+"'>"
                blog1=blog2+"<label for'"+blog1+"'>"+blog1+"</label><br>"
                blog3.append(blog1)
-            blogTopicIdeas=' '.join(map(str,blog3))
+            blogTopicIdea=' '.join(map(str,blog3))
+            blogTopicIdeas=blogTopicIdea+"<br><button type='click' id='blogtopics' name='blog_topics' class='btn btn-primary'>Next> </button> "
            else:
             blogT = blog.generateBlogSection(user_answer)
             blogT=blogT.split("\n")
             blogT=list(filter(None,blogT))
             blog3=[]
             for blog1 in blogT:
-               blog2="<input type='checkbox' name='blog_section'  value='"+blog1+"'onclick=''>"
+               blog2="<input type='checkbox' name='blog_section' id='blogtopics' value='"+blog1+"'onclick=''>"
                blog1=blog2+"<label for'"+blog1+"'>"+blog1+"</label><br>"
                blog3.append(blog1)
             blogSectionIdeas = ' '.join(map(str,blog3))
+            blogSectionIdeas1=blogSectionIdeas+"<br><button type='click' id='blogtopics' name='blog_topics' class='btn btn-primary'> Generate blog</button>"
             blogTopicIdeas=''
             user_answer=''
          else:
             Blogexpander=[]
             for i in user_selection:
+               image_url  = blog.BlogTopicImage(i)
+               BlogImage = image_url.replace('\n','<br>')
+               BlogImage = '<img src='+BlogImage+'</img><br>'
+               i='<h1>'+i[2::]+'</h1><br>'
                blogT = blog.BlogSectionExpander(i)
-               blogexpand=blogT.replace('\n','<br>')
+               blogexpand=blogT.replace('\n','<br>') 
+               Blogexpander.append(i)
+               Blogexpander.append(BlogImage)
                Blogexpander.append(blogexpand)
             Blogexpanderresult=' '.join(map(str,Blogexpander))
          user_text=request.form.get('content')
